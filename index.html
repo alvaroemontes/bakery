@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tumi Bakery Miami</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream:   '#FEFAF5',
+            beige:   '#F5E8D0',
+            lteal:   '#D4E8EF',
+            mteal:   '#B8C8CC',
+            teal:    '#5B9E96',
+            coral:   '#E8826B',
+            gold:    '#C9A96E',
+            dark:    '#2C1F14',
+            muted:   '#575558',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --base-font-size: 18px; }
+    html, body { font-size: var(--base-font-size); }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: #FEFAF5;
+      color: #575558;
+      overflow-x: hidden;
+      word-wrap: break-word;
+    }
+
+    /* ─── Typography helpers ─── */
+    .f-heading {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: #2C1F14;
+    }
+    .f-body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      line-height: 1.7em;
+      color: #575558;
+    }
+    .f-meta {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: .02em;
+      line-height: 2.6em;
+      color: #5B9E96;
+    }
+    .f-script {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 500;
+    }
+
+    /* ─── Nav ─── */
+    .nav-link {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #575558;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    .nav-link:hover { color: #5B9E96; }
+    .nav-link:focus-visible { outline: 2px solid #5B9E96; outline-offset: 4px; }
+
+    /* ─── Hero ─── */
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      background-image: url('bakery.png');
+      background-size: cover;
+      background-position: center 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(44,31,20,.42) 0%, rgba(44,31,20,.68) 100%);
+    }
+
+    /* ─── Promo card ─── */
+    .promo-card {
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #FEFAF5;
+      padding: 36px 32px;
+      width: 270px;
+      box-shadow:
+        0 2px 8px rgba(44,31,20,.08),
+        0 8px 32px rgba(44,31,20,.14);
+      z-index: 10;
+    }
+
+    /* ─── Buttons ─── */
+    .btn {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: .68rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background .22s ease, color .22s ease, border-color .22s ease;
+    }
+    .btn:focus-visible { outline: 2px solid #5B9E96; outline-offset: 4px; }
+
+    .btn-ghost-white {
+      padding: 13px 34px;
+      background: transparent;
+      border-color: rgba(255,255,255,.75);
+      color: #fff;
+    }
+    .btn-ghost-white:hover { background: rgba(255,255,255,.15); }
+    .btn-ghost-white:active { background: rgba(255,255,255,.25); }
+
+    .btn-solid-dark {
+      padding: 12px 28px;
+      background: #2C1F14;
+      border-color: #2C1F14;
+      color: #FEFAF5;
+    }
+    .btn-solid-dark:hover { background: transparent; color: #2C1F14; }
+    .btn-solid-dark:active { opacity: .85; }
+
+    .btn-outline-dark {
+      padding: 12px 28px;
+      background: transparent;
+      border-color: #2C1F14;
+      color: #2C1F14;
+    }
+    .btn-outline-dark:hover { background: #2C1F14; color: #FEFAF5; }
+    .btn-outline-dark:active { opacity: .85; }
+
+    /* ─── Spotlight card ─── */
+    .spotlight-card { transition: transform .3s ease; }
+    .spotlight-card:hover { transform: translateY(-5px); }
+    .spotlight-card:hover .spotlight-img { transform: scale(1.04); }
+    .spotlight-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      transition: transform .45s ease;
+      display: block;
+    }
+
+    /* ─── Divider line ─── */
+    .gold-line {
+      width: 40px;
+      height: 1px;
+      background: #C9A96E;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* ─── Section wrappers ─── */
+    .site-wrap {
+      max-width: 1670px;
+      margin: 0 auto;
+      padding: 0 5vw;
+    }
+
+    /* ─── Footer input ─── */
+    .footer-input {
+      flex: 1;
+      padding: 12px 16px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.2);
+      border-right: none;
+      color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-size: .65rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      outline: none;
+    }
+    .footer-input::placeholder { color: rgba(255,255,255,.35); }
+    .footer-input:focus { border-color: rgba(255,255,255,.45); }
+
+    .footer-submit {
+      padding: 12px 22px;
+      background: #5B9E96;
+      border: none;
+      color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-size: .65rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .2s ease;
+    }
+    .footer-submit:hover { background: #4A8880; }
+    .footer-submit:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  </style>
+</head>
+<body>
+
+  <!-- ░░ ANNOUNCEMENT BAR ░░ -->
+  <div style="background:#5B9E96; color:#fff; text-align:center; padding:10px 5vw; font-family:'Jost',sans-serif; font-size:.62rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; line-height:1.5;">
+    Free delivery on orders over $35&nbsp; · &nbsp;Now open in Wynwood&nbsp; · &nbsp;<a href="order.html" style="color:#fff; text-decoration:underline; text-underline-offset:3px;">Order Online</a>
+  </div>
+
+  <!-- ░░ NAVIGATION ░░ -->
+  <nav style="background:#FEFAF5; position:sticky; top:0; z-index:100; border-bottom:1px solid rgba(87,85,88,.1);">
+    <div class="site-wrap" style="display:flex; align-items:center; justify-content:space-between; height:72px; max-width:1670px; margin:0 auto; padding:0 5vw;">
+      <!-- Left -->
+      <div style="display:flex; gap:36px;">
+        <a href="menu.html" class="nav-link">Menu</a>
+        <a href="catering.html" class="nav-link">Catering</a>
+        <a href="our-story.html" class="nav-link">Our Story</a>
+      </div>
+      <!-- Logo -->
+      <a href="index.html" style="flex-shrink:0;" aria-label="Tumi Bakery Miami">
+        <img src="brand_asset/Tumi.png" alt="Tumi Bakery Miami" style="height:58px; width:58px; object-fit:contain; border-radius:50%;">
+      </a>
+      <!-- Right -->
+      <div style="display:flex; gap:36px; align-items:center;">
+        <a href="rewards.html" class="nav-link">Rewards</a>
+        <a href="locations.html" class="nav-link">Locations</a>
+        <a href="order.html" class="btn btn-solid-dark" style="font-size:.65rem; padding:10px 22px;">Order Online</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ░░ HERO ░░ -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-overlay"></div>
+
+    <!-- Promo card -->
+    <div class="promo-card">
+      <div class="f-meta" style="font-size:.82rem; line-height:1.4; margin-bottom:10px;">Special Offer</div>
+      <div class="f-heading" style="font-size:1.15rem; line-height:1.3; margin-bottom:10px;">
+        GIFT $100,<br>RECEIVE $20
+      </div>
+      <p class="f-body" style="font-size:.68rem; line-height:1.9; margin-bottom:22px;">
+        Give the gift of handcrafted Miami pastries. Valid on any gift card purchase.
+      </p>
+      <a href="order.html" class="btn btn-solid-dark" style="display:block; text-align:center; font-size:.65rem;">Buy a Gift Card</a>
+    </div>
+
+    <!-- Center content -->
+    <div style="position:relative; z-index:10; text-align:center; padding:0 5vw;">
+      <div class="f-meta" style="color:rgba(255,255,255,.82); font-size:1.05rem; margin-bottom:10px;">Handcrafted in Miami</div>
+      <h1 class="f-heading" style="color:#fff; font-size:2.9rem; line-height:1.18; letter-spacing:.14em; margin-bottom:30px; text-shadow:0 2px 16px rgba(44,31,20,.4);">
+        FRESH FROM<br>OUR OVEN TO YOU
+      </h1>
+      <a href="order.html" class="btn btn-ghost-white">Order Now</a>
+    </div>
+  </section>
+
+  <!-- ░░ FEATURE PROMO — beige bg ░░ -->
+  <section style="background:#F5E8D0; padding:84px 0;">
+    <div class="site-wrap" style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; max-width:1670px; margin:0 auto; padding:0 5vw;">
+
+      <!-- Text side -->
+      <div>
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:18px;">
+          <span class="f-meta" style="font-size:.82rem; line-height:1;">Summer Specials</span>
+          <span class="gold-line"></span>
+          <span class="f-body" style="font-size:.62rem; color:#575558;">Tumi Bakery Miami</span>
+        </div>
+        <h2 class="f-heading" style="font-size:2.55rem; line-height:1.08; margin-bottom:22px;">
+          TROPICAL MANGO<br>DREAM CAKE
+        </h2>
+        <p class="f-body" style="font-size:.72rem; line-height:2; max-width:400px; margin-bottom:30px;">
+          Layers of mango mousse, coconut sponge, and tropical cream — baked fresh daily in the heart of Miami.
+        </p>
+        <a href="order.html" class="btn btn-solid-dark">Order Now</a>
+      </div>
+
+      <!-- Image side -->
+      <div style="position:relative;">
+        <div style="position:relative; overflow:hidden;">
+          <img
+            src="https://placehold.co/520x420/E8826B/FEFAF5?text=Mango+Dream+Cake"
+            alt="Tropical Mango Dream Cake"
+            style="width:100%; display:block;"
+          >
+          <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(201,169,110,.18) 0%, transparent 60%); mix-blend-mode:multiply;"></div>
+        </div>
+        <div class="f-script" style="position:absolute; bottom:20px; right:20px; font-size:1.55rem; color:#E8826B; transform:rotate(-4deg); text-shadow:0 1px 4px rgba(255,255,255,.6);">
+          just for you ♡
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ IN THE SPOTLIGHT ░░ -->
+  <section style="background:#fff; padding:84px 0;">
+    <div class="site-wrap" style="max-width:1670px; margin:0 auto; padding:0 5vw;">
+      <div style="text-align:center; margin-bottom:52px;">
+        <span class="f-heading" style="font-size:.65rem; letter-spacing:.18em;">In the Spotlight</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:28px;">
+
+        <!-- Item 1 -->
+        <div class="spotlight-card" style="text-align:center;">
+          <div style="overflow:hidden; margin-bottom:18px;">
+            <img class="spotlight-img" src="https://placehold.co/360x320/F5E8D0/2C1F14?text=Croissant" alt="Butter Croissant">
+          </div>
+          <div class="f-body" style="font-size:.63rem; margin-bottom:5px;">Butter Croissant</div>
+          <div class="f-meta" style="font-size:.82rem; line-height:1.3;">Classic</div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="spotlight-card" style="text-align:center;">
+          <div style="overflow:hidden; margin-bottom:18px;">
+            <img class="spotlight-img" src="https://placehold.co/360x320/D4E8EF/2C1F14?text=Layer+Cake" alt="Signature Layer Cake">
+          </div>
+          <div class="f-body" style="font-size:.63rem; margin-bottom:5px;">Signature Layer Cake</div>
+          <div class="f-meta" style="font-size:.82rem; line-height:1.3;">Bestseller</div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="spotlight-card" style="text-align:center;">
+          <div style="overflow:hidden; margin-bottom:18px;">
+            <img class="spotlight-img" src="https://placehold.co/360x320/F5E8D0/E8826B?text=Macarons" alt="French Macarons">
+          </div>
+          <div class="f-body" style="font-size:.63rem; margin-bottom:5px;">French Macarons</div>
+          <div class="f-meta" style="font-size:.82rem; line-height:1.3;">Miami Flavors</div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="spotlight-card" style="text-align:center;">
+          <div style="overflow:hidden; margin-bottom:18px;">
+            <img class="spotlight-img" src="https://placehold.co/360x320/C9A96E/FEFAF5?text=Morning+Muffins" alt="Morning Muffins">
+          </div>
+          <div class="f-body" style="font-size:.63rem; margin-bottom:5px;">Morning Muffins</div>
+          <div class="f-meta" style="font-size:.82rem; line-height:1.3;">Daily Fresh</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ CTA BUTTONS — light teal bg ░░ -->
+  <section style="background:#D4E8EF; padding:60px 5vw;">
+    <div style="max-width:1670px; margin:0 auto; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+      <a href="menu.html" class="btn btn-solid-dark">Our Menu</a>
+      <a href="catering.html" class="btn btn-solid-dark">Catering</a>
+      <a href="order.html" class="btn btn-solid-dark">Order Online</a>
+    </div>
+  </section>
+
+  <!-- ░░ REWARDS PROGRAM — mid teal bg ░░ -->
+  <section style="background:#B8C8CC; padding:84px 5vw;">
+    <div style="max-width:1670px; margin:0 auto; text-align:center;">
+      <div class="f-heading" style="font-size:.65rem; letter-spacing:.18em; margin-bottom:22px;">Rewards Program</div>
+      <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:60px;">
+        <a href="rewards.html" class="btn btn-outline-dark">Get the App</a>
+        <a href="rewards.html" class="btn btn-outline-dark">Learn More</a>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:48px; max-width:900px; margin:0 auto;">
+        <div>
+          <div class="f-heading" style="font-size:.62rem; letter-spacing:.14em; margin-bottom:8px;">Mobile App Members</div>
+          <div class="f-meta" style="color:#575558; font-size:.92rem; line-height:2.2;">Exclusive perks and early access to seasonal drops.</div>
+        </div>
+        <div>
+          <div class="f-heading" style="font-size:.62rem; letter-spacing:.14em; margin-bottom:8px;">Save Time. Skip the Line.</div>
+          <div class="f-meta" style="color:#575558; font-size:.92rem; line-height:2.2;">Order ahead and pick up your favorites instantly.</div>
+        </div>
+        <div>
+          <div class="f-heading" style="font-size:.62rem; letter-spacing:.14em; margin-bottom:8px;">Earn Points with Every Purchase</div>
+          <div class="f-meta" style="color:#575558; font-size:.92rem; line-height:2.2;">Redeem for free treats, discounts, and more.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ MAP PLACEHOLDER ░░ -->
+  <section style="background:#FEFAF5; padding:84px 5vw;">
+    <div style="max-width:1670px; margin:0 auto; text-align:center;">
+      <div class="f-meta" style="font-size:1rem; line-height:1.4; margin-bottom:8px;">Visit Us</div>
+      <div class="f-heading" style="font-size:.65rem; letter-spacing:.18em; margin-bottom:44px;"><a href="locations.html" style="color:inherit; text-decoration:none;">Find a Tumi Near You</a></div>
+      <div style="background:#D4E8EF; height:260px; display:flex; align-items:center; justify-content:center; margin-bottom:0;">
+        <span class="f-body" style="font-size:.65rem; color:#5B9E96; letter-spacing:.14em;">Miami, FL — Map</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ LOCATIONS & HOURS — dark bg ░░ -->
+  <section style="background:#2C1F14; padding:84px 5vw;">
+    <div style="max-width:1670px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:56px;">
+        <span class="f-heading" style="font-size:.65rem; letter-spacing:.18em; color:#fff;">Locations &amp; Hours</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:48px;">
+
+        <!-- Location 1 -->
+        <div>
+          <div class="f-heading" style="font-size:.68rem; color:#fff; margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,.14);">Wynwood</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:.96rem; color:rgba(255,255,255,.72); line-height:2.4;">
+            2601 NW 2nd Ave<br>Miami, FL 33127
+          </div>
+          <div class="f-body" style="font-size:.62rem; color:rgba(255,255,255,.44); line-height:2.2; margin-top:16px;">
+            Mon – Fri: 7am – 7pm<br>Sat – Sun: 8am – 6pm
+          </div>
+        </div>
+
+        <!-- Location 2 -->
+        <div>
+          <div class="f-heading" style="font-size:.68rem; color:#fff; margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,.14);">Brickell</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:.96rem; color:rgba(255,255,255,.72); line-height:2.4;">
+            801 S Miami Ave<br>Miami, FL 33130
+          </div>
+          <div class="f-body" style="font-size:.62rem; color:rgba(255,255,255,.44); line-height:2.2; margin-top:16px;">
+            Mon – Fri: 7am – 7pm<br>Sat – Sun: 8am – 6pm
+          </div>
+        </div>
+
+        <!-- Location 3 -->
+        <div>
+          <div class="f-heading" style="font-size:.68rem; color:#fff; margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,.14);">South Beach</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:.96rem; color:rgba(255,255,255,.72); line-height:2.4;">
+            1500 Ocean Dr<br>Miami Beach, FL 33139
+          </div>
+          <div class="f-body" style="font-size:.62rem; color:rgba(255,255,255,.44); line-height:2.2; margin-top:16px;">
+            Mon – Fri: 7am – 7pm<br>Sat – Sun: 8am – 6pm
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer style="background:#1A110C; padding:64px 5vw 40px; border-top:1px solid rgba(255,255,255,.06);">
+    <div style="max-width:1670px; margin:0 auto;">
+
+      <!-- Footer grid -->
+      <div style="display:grid; grid-template-columns:1fr 2fr 1fr; gap:48px; margin-bottom:52px;">
+
+        <!-- Brand col -->
+        <div>
+          <img src="brand_asset/Tumi.png" alt="Tumi Bakery Miami" style="height:60px; width:60px; object-fit:contain; margin-bottom:18px; border-radius:50%; background:#FEFAF5;">
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(255,255,255,.42); font-size:.9rem; line-height:2.2;">
+            Handcrafted pastries &amp;<br>cakes in Miami, FL.
+          </div>
+        </div>
+
+        <!-- Newsletter col -->
+        <div style="text-align:center;">
+          <div class="f-heading" style="font-size:.62rem; letter-spacing:.18em; color:rgba(255,255,255,.44); margin-bottom:22px;">Join Our Community</div>
+          <div style="display:flex; max-width:380px; margin:0 auto;">
+            <input type="email" class="footer-input" placeholder="Your email address" aria-label="Email address">
+            <button class="footer-submit">Sign Up</button>
+          </div>
+        </div>
+
+        <!-- Social col -->
+        <div style="text-align:right;">
+          <div class="f-heading" style="font-size:.62rem; letter-spacing:.18em; color:rgba(255,255,255,.44); margin-bottom:22px;">Follow Us</div>
+          <div style="display:flex; gap:20px; justify-content:flex-end; flex-direction:column;">
+            <a href="#" class="nav-link" style="color:rgba(255,255,255,.44); font-size:.62rem;">Instagram</a>
+            <a href="#" class="nav-link" style="color:rgba(255,255,255,.44); font-size:.62rem;">TikTok</a>
+            <a href="#" class="nav-link" style="color:rgba(255,255,255,.44); font-size:.62rem;">Facebook</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div style="border-top:1px solid rgba(255,255,255,.07); padding-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div class="f-body" style="font-size:.58rem; color:rgba(255,255,255,.28); letter-spacing:.1em;">
+          © 2025 Tumi Bakery Miami. All Rights Reserved.
+        </div>
+        <div style="display:flex; gap:24px;">
+          <a href="#" class="nav-link" style="color:rgba(255,255,255,.28); font-size:.58rem;">Privacy Policy</a>
+          <a href="#" class="nav-link" style="color:rgba(255,255,255,.28); font-size:.58rem;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

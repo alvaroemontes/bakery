@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — Tumi Bakery Miami</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { font-size: 18px; }
+    body { font-family: 'Jost', sans-serif; background: #FEFAF5; color: #575558; overflow-x: hidden; }
+    .f-heading { font-family: 'Jost', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: .14em; color: #2C1F14; }
+    .f-body { font-family: 'Jost', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; line-height: 1.7em; color: #575558; }
+    .f-meta { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; letter-spacing: .02em; color: #5B9E96; }
+    .nav-link { font-family: 'Jost', sans-serif; font-weight: 500; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: #575558; text-decoration: none; transition: color .2s ease; }
+    .nav-link:hover { color: #5B9E96; }
+    .nav-link.active { color: #5B9E96; }
+    .btn { display: inline-block; font-family: 'Jost', sans-serif; font-weight: 500; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: background .22s ease, color .22s ease, border-color .22s ease; }
+    .btn-solid-dark { padding: 12px 28px; background: #2C1F14; border-color: #2C1F14; color: #FEFAF5; }
+    .btn-solid-dark:hover { background: transparent; color: #2C1F14; }
+    .menu-item { border-bottom: 1px solid rgba(87,85,88,.12); padding: 20px 0; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; transition: background .15s ease; }
+    .menu-item:last-child { border-bottom: none; }
+    .menu-item:hover { padding-left: 8px; }
+    .footer-input { flex: 1; padding: 12px 16px; background: transparent; border: 1px solid rgba(255,255,255,.2); border-right: none; color: #fff; font-family: 'Jost', sans-serif; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; outline: none; }
+    .footer-input::placeholder { color: rgba(255,255,255,.35); }
+    .footer-submit { padding: 12px 22px; background: #5B9E96; border: none; color: #fff; font-family: 'Jost', sans-serif; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: background .2s ease; }
+    .footer-submit:hover { background: #4A8880; }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div style="background:#5B9E96; color:#fff; text-align:center; padding:10px 5vw; font-family:'Jost',sans-serif; font-size:.62rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase;">
+    Free delivery on orders over $35 · Now open in Wynwood · <a href="order.html" style="color:#fff; text-decoration:underline; text-underline-offset:3px;">Order Online</a>
+  </div>
+
+  <!-- Nav -->
+  <nav style="background:#FEFAF5; position:sticky; top:0; z-index:100; border-bottom:1px solid rgba(87,85,88,.1);">
+    <div style="max-width:1670px; margin:0 auto; padding:0 5vw; display:flex; align-items:center; justify-content:space-between; height:72px;">
+      <div style="display:flex; gap:36px;">
+        <a href="menu.html" class="nav-link active">Menu</a>
+        <a href="catering.html" class="nav-link">Catering</a>
+        <a href="our-story.html" class="nav-link">Our Story</a>
+      </div>
+      <a href="index.html" aria-label="Tumi Bakery Miami">
+        <img src="brand_asset/Tumi.png" alt="Tumi Bakery Miami" style="height:58px; width:58px; object-fit:contain; border-radius:50%;">
+      </a>
+      <div style="display:flex; gap:36px; align-items:center;">
+        <a href="rewards.html" class="nav-link">Rewards</a>
+        <a href="locations.html" class="nav-link">Locations</a>
+        <a href="order.html" class="btn btn-solid-dark" style="font-size:.65rem; padding:10px 22px;">Order Online</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section style="background:#F5E8D0; padding:72px 5vw;">
+    <div style="max-width:1670px; margin:0 auto; text-align:center;">
+      <div class="f-meta" style="font-size:1rem; margin-bottom:8px;">Baked Fresh Daily</div>
+      <h1 class="f-heading" style="font-size:2.4rem; line-height:1.15;">Our Menu</h1>
+    </div>
+  </section>
+
+  <!-- Menu Content -->
+  <section style="background:#FEFAF5; padding:80px 5vw;">
+    <div style="max-width:900px; margin:0 auto;">
+
+      <!-- Category: Pastries -->
+      <div style="margin-bottom:64px;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:32px;">
+          <span class="f-heading" style="font-size:.68rem; letter-spacing:.18em;">Pastries</span>
+          <div style="flex:1; height:1px; background:rgba(87,85,88,.14);"></div>
+          <span class="f-meta" style="font-size:.82rem;">morning favorites</span>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Butter Croissant</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">Classic French-style, laminated dough, baked golden</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">$4.50</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Almond Croissant</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">Filled with almond cream, topped with sliced almonds</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">$5.50</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Pain au Chocolat</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">Dark chocolate tucked in buttery pastry dough</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">$5.00</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Morning Muffin</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">Blueberry, banana walnut, or seasonal fruit</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">$4.00</div>
+        </div>
+      </div>
+
+      <!-- Category: Cakes & Slices -->
+      <div style="margin-bottom:64px;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:32px;">
+          <span class="f-heading" style="font-size:.68rem; letter-spacing:.18em;">Cakes &amp; Slices</span>
+          <div style="flex:1; height:1px; background:rgba(87,85,88,.14);"></div>
+          <span class="f-meta" style="font-size:.82rem;">signature creations</span>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Tropical Mango Dream</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">Mango mousse, coconut sponge, tropical cream — slice</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">$8.00</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Tres Leches Cake</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">Classic soaked sponge with whipped cream topping</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">$7.50</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Guava &amp; Cream Cheese</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">Miami classic — guava paste, cream cheese, flaky pastry</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">$5.50</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Whole Custom Cake</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">Custom flavors, 48-hour advance order required</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">From $65</div>
+        </div>
+      </div>
+
+      <!-- Category: Macarons -->
+      <div style="margin-bottom:64px;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:32px;">
+          <span class="f-heading" style="font-size:.68rem; letter-spacing:.18em;">Macarons</span>
+          <div style="flex:1; height:1px; background:rgba(87,85,88,.14);"></div>
+          <span class="f-meta" style="font-size:.82rem;">french &amp; miami flavors</span>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Classic Box of 6</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">Vanilla, chocolate, raspberry, pistachio, caramel, lemon</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">$18.00</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Miami Box of 6</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">Mango, guava, coconut, passion fruit, key lime, coquito</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">$20.00</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Single Macaron</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">Choose any flavor, subject to availability</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">$3.50</div>
+        </div>
+      </div>
+
+      <!-- Category: Drinks -->
+      <div style="margin-bottom:32px;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:32px;">
+          <span class="f-heading" style="font-size:.68rem; letter-spacing:.18em;">Drinks</span>
+          <div style="flex:1; height:1px; background:rgba(87,85,88,.14);"></div>
+          <span class="f-meta" style="font-size:.82rem;">café selection</span>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Café Cubano</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">Miami-style espresso with sweet foam, served warm</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">$3.50</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Cold Brew Latte</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">Smooth cold brew, oat or whole milk</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">$6.00</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="f-body" style="font-size:.72rem; color:#2C1F14; margin-bottom:4px;">Mango Hibiscus Agua Fresca</div>
+            <div class="f-meta" style="font-size:.82rem; line-height:1.4; color:#575558; font-style:normal; font-family:'Cormorant Garamond',serif;">House-made, lightly sweetened, served chilled</div>
+          </div>
+          <div class="f-body" style="font-size:.72rem; color:#2C1F14; white-space:nowrap;">$5.00</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; padding-top:32px;">
+        <a href="order.html" class="btn btn-solid-dark">Order Online</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:#1A110C; padding:64px 5vw 40px; border-top:1px solid rgba(255,255,255,.06);">
+    <div style="max-width:1670px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:1fr 2fr 1fr; gap:48px; margin-bottom:52px;">
+        <div>
+          <img src="brand_asset/Tumi.png" alt="Tumi Bakery Miami" style="height:60px; width:60px; object-fit:contain; margin-bottom:18px; border-radius:50%; background:#FEFAF5;">
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(255,255,255,.42); font-size:.9rem; line-height:2.2;">Handcrafted pastries &amp;<br>cakes in Miami, FL.</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="f-heading" style="font-size:.62rem; letter-spacing:.18em; color:rgba(255,255,255,.44); margin-bottom:22px;">Join Our Community</div>
+          <div style="display:flex; max-width:380px; margin:0 auto;">
+            <input type="email" class="footer-input" placeholder="Your email address" aria-label="Email address">
+            <button class="footer-submit">Sign Up</button>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div class="f-heading" style="font-size:.62rem; letter-spacing:.18em; color:rgba(255,255,255,.44); margin-bottom:22px;">Follow Us</div>
+          <div style="display:flex; gap:20px; justify-content:flex-end; flex-direction:column;">
+            <a href="#" class="nav-link" style="color:rgba(255,255,255,.44); font-size:.62rem;">Instagram</a>
+            <a href="#" class="nav-link" style="color:rgba(255,255,255,.44); font-size:.62rem;">TikTok</a>
+            <a href="#" class="nav-link" style="color:rgba(255,255,255,.44); font-size:.62rem;">Facebook</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.07); padding-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div class="f-body" style="font-size:.58rem; color:rgba(255,255,255,.28); letter-spacing:.1em;">© 2025 Tumi Bakery Miami. All Rights Reserved.</div>
+        <div style="display:flex; gap:24px;">
+          <a href="#" class="nav-link" style="color:rgba(255,255,255,.28); font-size:.58rem;">Privacy Policy</a>
+          <a href="#" class="nav-link" style="color:rgba(255,255,255,.28); font-size:.58rem;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

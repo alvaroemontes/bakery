@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locations — Tumi Bakery Miami</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { font-size: 18px; }
+    body { font-family: 'Jost', sans-serif; background: #FEFAF5; color: #575558; overflow-x: hidden; }
+    .f-heading { font-family: 'Jost', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: .14em; color: #2C1F14; }
+    .f-body { font-family: 'Jost', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; line-height: 1.7em; color: #575558; }
+    .f-meta { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; letter-spacing: .02em; color: #5B9E96; }
+    .nav-link { font-family: 'Jost', sans-serif; font-weight: 500; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: #575558; text-decoration: none; transition: color .2s ease; }
+    .nav-link:hover { color: #5B9E96; }
+    .nav-link.active { color: #5B9E96; }
+    .btn { display: inline-block; font-family: 'Jost', sans-serif; font-weight: 500; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: background .22s ease, color .22s ease; }
+    .btn-solid-dark { padding: 12px 28px; background: #2C1F14; border-color: #2C1F14; color: #FEFAF5; }
+    .btn-solid-dark:hover { background: transparent; color: #2C1F14; }
+    .location-card { background: #fff; border: 1px solid rgba(87,85,88,.12); overflow: hidden; }
+    .footer-input { flex: 1; padding: 12px 16px; background: transparent; border: 1px solid rgba(255,255,255,.2); border-right: none; color: #fff; font-family: 'Jost', sans-serif; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; outline: none; }
+    .footer-input::placeholder { color: rgba(255,255,255,.35); }
+    .footer-submit { padding: 12px 22px; background: #5B9E96; border: none; color: #fff; font-family: 'Jost', sans-serif; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: background .2s; }
+    .footer-submit:hover { background: #4A8880; }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div style="background:#5B9E96; color:#fff; text-align:center; padding:10px 5vw; font-family:'Jost',sans-serif; font-size:.62rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase;">
+    Free delivery on orders over $35 · Now open in Wynwood · <a href="order.html" style="color:#fff; text-decoration:underline; text-underline-offset:3px;">Order Online</a>
+  </div>
+
+  <!-- Nav -->
+  <nav style="background:#FEFAF5; position:sticky; top:0; z-index:100; border-bottom:1px solid rgba(87,85,88,.1);">
+    <div style="max-width:1670px; margin:0 auto; padding:0 5vw; display:flex; align-items:center; justify-content:space-between; height:72px;">
+      <div style="display:flex; gap:36px;">
+        <a href="menu.html" class="nav-link">Menu</a>
+        <a href="catering.html" class="nav-link">Catering</a>
+        <a href="our-story.html" class="nav-link">Our Story</a>
+      </div>
+      <a href="index.html" aria-label="Tumi Bakery Miami">
+        <img src="brand_asset/Tumi.png" alt="Tumi Bakery Miami" style="height:58px; width:58px; object-fit:contain; border-radius:50%;">
+      </a>
+      <div style="display:flex; gap:36px; align-items:center;">
+        <a href="rewards.html" class="nav-link">Rewards</a>
+        <a href="locations.html" class="nav-link active">Locations</a>
+        <a href="order.html" class="btn btn-solid-dark" style="font-size:.65rem; padding:10px 22px;">Order Online</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section style="background:#F5E8D0; padding:72px 5vw;">
+    <div style="max-width:1670px; margin:0 auto; text-align:center;">
+      <div class="f-meta" style="font-size:1rem; margin-bottom:8px;">Across Miami</div>
+      <h1 class="f-heading" style="font-size:2.4rem; line-height:1.15;">Locations &amp; Hours</h1>
+    </div>
+  </section>
+
+  <!-- Map placeholder -->
+  <div style="background:#D4E8EF; height:320px; display:flex; align-items:center; justify-content:center;">
+    <div style="text-align:center;">
+      <div class="f-body" style="font-size:.62rem; color:#5B9E96; margin-bottom:8px;">Interactive Map</div>
+      <div style="font-family:'Cormorant Garamond',serif; color:#575558; font-size:.96rem;">Wynwood · Brickell · South Beach</div>
+    </div>
+  </div>
+
+  <!-- Location cards -->
+  <section style="background:#FEFAF5; padding:80px 5vw;">
+    <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+
+      <!-- Wynwood -->
+      <div class="location-card">
+        <div style="background:#D4E8EF; height:200px; display:flex; align-items:center; justify-content:center;">
+          <img src="https://placehold.co/400x200/D4E8EF/5B9E96?text=Wynwood" alt="Wynwood" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div style="padding:32px;">
+          <div class="f-heading" style="font-size:.72rem; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid rgba(87,85,88,.12);">Wynwood</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:.96rem; color:#575558; line-height:2.4; margin-bottom:16px;">
+            2601 NW 2nd Ave<br>Miami, FL 33127
+          </div>
+          <div class="f-body" style="font-size:.62rem; line-height:2.2; margin-bottom:24px;">
+            Mon – Fri: 7am – 7pm<br>Sat – Sun: 8am – 6pm
+          </div>
+          <div class="f-body" style="font-size:.62rem; color:#5B9E96; margin-bottom:20px;">
+            (305) 555-0101
+          </div>
+          <a href="order.html" class="btn btn-solid-dark" style="display:block; text-align:center;">Order from Here</a>
+        </div>
+      </div>
+
+      <!-- Brickell -->
+      <div class="location-card">
+        <div style="background:#F5E8D0; height:200px; display:flex; align-items:center; justify-content:center;">
+          <img src="https://placehold.co/400x200/F5E8D0/C9A96E?text=Brickell" alt="Brickell" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div style="padding:32px;">
+          <div class="f-heading" style="font-size:.72rem; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid rgba(87,85,88,.12);">Brickell</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:.96rem; color:#575558; line-height:2.4; margin-bottom:16px;">
+            801 S Miami Ave<br>Miami, FL 33130
+          </div>
+          <div class="f-body" style="font-size:.62rem; line-height:2.2; margin-bottom:24px;">
+            Mon – Fri: 7am – 7pm<br>Sat – Sun: 8am – 6pm
+          </div>
+          <div class="f-body" style="font-size:.62rem; color:#5B9E96; margin-bottom:20px;">
+            (305) 555-0202
+          </div>
+          <a href="order.html" class="btn btn-solid-dark" style="display:block; text-align:center;">Order from Here</a>
+        </div>
+      </div>
+
+      <!-- South Beach -->
+      <div class="location-card">
+        <div style="background:#B8C8CC; height:200px; display:flex; align-items:center; justify-content:center;">
+          <img src="https://placehold.co/400x200/B8C8CC/2C1F14?text=South+Beach" alt="South Beach" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div style="padding:32px;">
+          <div class="f-heading" style="font-size:.72rem; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid rgba(87,85,88,.12);">South Beach</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:.96rem; color:#575558; line-height:2.4; margin-bottom:16px;">
+            1500 Ocean Dr<br>Miami Beach, FL 33139
+          </div>
+          <div class="f-body" style="font-size:.62rem; line-height:2.2; margin-bottom:24px;">
+            Mon – Fri: 7am – 7pm<br>Sat – Sun: 8am – 6pm
+          </div>
+          <div class="f-body" style="font-size:.62rem; color:#5B9E96; margin-bottom:20px;">
+            (305) 555-0303
+          </div>
+          <a href="order.html" class="btn btn-solid-dark" style="display:block; text-align:center;">Order from Here</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:#1A110C; padding:64px 5vw 40px; border-top:1px solid rgba(255,255,255,.06);">
+    <div style="max-width:1670px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:1fr 2fr 1fr; gap:48px; margin-bottom:52px;">
+        <div>
+          <img src="brand_asset/Tumi.png" alt="Tumi Bakery Miami" style="height:60px; width:60px; object-fit:contain; margin-bottom:18px; border-radius:50%; background:#FEFAF5;">
+          <div style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(255,255,255,.42); font-size:.9rem; line-height:2.2;">Handcrafted pastries &amp;<br>cakes in Miami, FL.</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="f-heading" style="font-size:.62rem; letter-spacing:.18em; color:rgba(255,255,255,.44); margin-bottom:22px;">Join Our Community</div>
+          <div style="display:flex; max-width:380px; margin:0 auto;">
+            <input type="email" class="footer-input" placeholder="Your email address" aria-label="Email address">
+            <button class="footer-submit">Sign Up</button>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div class="f-heading" style="font-size:.62rem; letter-spacing:.18em; color:rgba(255,255,255,.44); margin-bottom:22px;">Follow Us</div>
+          <div style="display:flex; gap:20px; justify-content:flex-end; flex-direction:column;">
+            <a href="#" class="nav-link" style="color:rgba(255,255,255,.44); font-size:.62rem;">Instagram</a>
+            <a href="#" class="nav-link" style="color:rgba(255,255,255,.44); font-size:.62rem;">TikTok</a>
+            <a href="#" class="nav-link" style="color:rgba(255,255,255,.44); font-size:.62rem;">Facebook</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.07); padding-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <div class="f-body" style="font-size:.58rem; color:rgba(255,255,255,.28); letter-spacing:.1em;">© 2025 Tumi Bakery Miami. All Rights Reserved.</div>
+        <div style="display:flex; gap:24px;">
+          <a href="#" class="nav-link" style="color:rgba(255,255,255,.28); font-size:.58rem;">Privacy Policy</a>
+          <a href="#" class="nav-link" style="color:rgba(255,255,255,.28); font-size:.58rem;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
