@@ -186,6 +186,52 @@
       padding: 0 5vw;
     }
 
+    /* ─── Responsive grids ─── */
+    .feat-grid    { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+    .spotlight-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+    .rewards-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:48px; max-width:900px; margin:0 auto; }
+    .locations-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:48px; }
+    .footer-grid  { display:grid; grid-template-columns:1fr 2fr 1fr; gap:48px; margin-bottom:52px; }
+
+    /* ─── Hamburger ─── */
+    .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:8px; }
+    .nav-hamburger span { display:block; width:22px; height:1.5px; background:#2C1F14; transition:transform .2s ease, opacity .2s ease; }
+    .nav-mobile-menu {
+      display:none; position:fixed; inset:0; top:72px; background:#FEFAF5;
+      z-index:99; flex-direction:column; align-items:center; justify-content:center;
+      gap:36px; border-top:1px solid rgba(87,85,88,.1);
+    }
+    .nav-mobile-menu.open { display:flex; }
+    .nav-mobile-link {
+      font-family:'Jost',sans-serif; font-weight:500; font-size:1.1rem;
+      letter-spacing:.14em; text-transform:uppercase; color:#2C1F14; text-decoration:none;
+    }
+    .nav-mobile-link:hover { color:#5B9E96; }
+
+    @media (max-width: 767px) {
+      .nav-links-left, .nav-links-right { display:none !important; }
+      .nav-hamburger { display:flex !important; }
+
+      .promo-card {
+        position:static !important; transform:none !important; width:auto !important;
+        right:auto !important; top:auto !important; margin:0 5vw 0; order:2;
+      }
+      .hero-center { order:1; }
+      .hero {
+        flex-direction:column; justify-content:flex-end !important;
+        padding-bottom:40px; gap:32px; min-height:100svh;
+      }
+
+      .feat-grid    { grid-template-columns:1fr !important; gap:36px !important; }
+      .spotlight-grid { grid-template-columns:repeat(2,1fr) !important; gap:18px !important; }
+      .rewards-grid { grid-template-columns:1fr !important; gap:32px !important; text-align:left !important; }
+      .locations-grid { grid-template-columns:1fr !important; gap:36px !important; }
+      .footer-grid  { grid-template-columns:1fr !important; gap:36px !important; text-align:left !important; }
+
+      .footer-social-right { text-align:left !important; }
+      .footer-social-right > div { justify-content:flex-start !important; }
+    }
+
     /* ─── Footer input ─── */
     .footer-input {
       flex: 1;
@@ -230,7 +276,7 @@
   <nav style="background:#FEFAF5; position:sticky; top:0; z-index:100; border-bottom:1px solid rgba(87,85,88,.1);">
     <div class="site-wrap" style="display:flex; align-items:center; justify-content:space-between; height:72px; max-width:1670px; margin:0 auto; padding:0 5vw;">
       <!-- Left -->
-      <div style="display:flex; gap:36px;">
+      <div class="nav-links-left" style="display:flex; gap:36px;">
         <a href="menu.html" class="nav-link">Menu</a>
         <a href="catering.html" class="nav-link">Catering</a>
         <a href="our-story.html" class="nav-link">Our Story</a>
@@ -240,13 +286,27 @@
         <img src="brand_asset/Tumi.png" alt="Tumi Bakery Miami" style="height:58px; width:58px; object-fit:contain; border-radius:50%;">
       </a>
       <!-- Right -->
-      <div style="display:flex; gap:36px; align-items:center;">
+      <div class="nav-links-right" style="display:flex; gap:36px; align-items:center;">
         <a href="rewards.html" class="nav-link">Rewards</a>
         <a href="locations.html" class="nav-link">Locations</a>
         <a href="order.html" class="btn btn-solid-dark" style="font-size:.65rem; padding:10px 22px;">Order Online</a>
       </div>
+      <!-- Hamburger -->
+      <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="nav-mobile-menu">
+    <a href="menu.html" class="nav-mobile-link">Menu</a>
+    <a href="catering.html" class="nav-mobile-link">Catering</a>
+    <a href="our-story.html" class="nav-mobile-link">Our Story</a>
+    <a href="rewards.html" class="nav-mobile-link">Rewards</a>
+    <a href="locations.html" class="nav-mobile-link">Locations</a>
+    <a href="order.html" class="btn btn-solid-dark" style="font-size:.8rem; padding:14px 32px;">Order Online</a>
+  </div>
 
   <!-- ░░ HERO ░░ -->
   <section class="hero" aria-label="Hero">
@@ -265,7 +325,7 @@
     </div>
 
     <!-- Center content -->
-    <div style="position:relative; z-index:10; text-align:center; padding:0 5vw;">
+    <div class="hero-center" style="position:relative; z-index:10; text-align:center; padding:0 5vw;">
       <div class="f-meta" style="color:rgba(255,255,255,.82); font-size:1.05rem; margin-bottom:10px;">Handcrafted in Miami</div>
       <h1 class="f-heading" style="color:#fff; font-size:2.9rem; line-height:1.18; letter-spacing:.14em; margin-bottom:30px; text-shadow:0 2px 16px rgba(44,31,20,.4);">
         FRESH FROM<br>OUR OVEN TO YOU
@@ -276,7 +336,7 @@
 
   <!-- ░░ FEATURE PROMO — beige bg ░░ -->
   <section style="background:#F5E8D0; padding:84px 0;">
-    <div class="site-wrap" style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; max-width:1670px; margin:0 auto; padding:0 5vw;">
+    <div class="feat-grid site-wrap" style="max-width:1670px; margin:0 auto; padding:0 5vw;">
 
       <!-- Text side -->
       <div>
@@ -317,7 +377,7 @@
       <div style="text-align:center; margin-bottom:52px;">
         <span class="f-heading" style="font-size:.65rem; letter-spacing:.18em;">In the Spotlight</span>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:28px;">
+      <div class="spotlight-grid">
 
         <!-- Item 1 -->
         <div class="spotlight-card" style="text-align:center;">
@@ -376,7 +436,7 @@
         <a href="rewards.html" class="btn btn-outline-dark">Get the App</a>
         <a href="rewards.html" class="btn btn-outline-dark">Learn More</a>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:48px; max-width:900px; margin:0 auto;">
+      <div class="rewards-grid">
         <div>
           <div class="f-heading" style="font-size:.62rem; letter-spacing:.14em; margin-bottom:8px;">Mobile App Members</div>
           <div class="f-meta" style="color:#575558; font-size:.92rem; line-height:2.2;">Exclusive perks and early access to seasonal drops.</div>
@@ -410,7 +470,7 @@
       <div style="text-align:center; margin-bottom:56px;">
         <span class="f-heading" style="font-size:.65rem; letter-spacing:.18em; color:#fff;">Locations &amp; Hours</span>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:48px;">
+      <div class="locations-grid">
 
         <!-- Location 1 -->
         <div>
@@ -454,7 +514,7 @@
     <div style="max-width:1670px; margin:0 auto;">
 
       <!-- Footer grid -->
-      <div style="display:grid; grid-template-columns:1fr 2fr 1fr; gap:48px; margin-bottom:52px;">
+      <div class="footer-grid">
 
         <!-- Brand col -->
         <div>
@@ -474,7 +534,7 @@
         </div>
 
         <!-- Social col -->
-        <div style="text-align:right;">
+        <div class="footer-social-right" style="text-align:right;">
           <div class="f-heading" style="font-size:.62rem; letter-spacing:.18em; color:rgba(255,255,255,.44); margin-bottom:22px;">Follow Us</div>
           <div style="display:flex; gap:20px; justify-content:flex-end; flex-direction:column;">
             <a href="#" class="nav-link" style="color:rgba(255,255,255,.44); font-size:.62rem;">Instagram</a>
